@@ -117,6 +117,13 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/deep-copy" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/digitaldream/dbreader" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/digitaldream/laracrud" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/php-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/scout" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/tabuna/breadcrumbs" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/watson/active" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/orchid/blade-icons" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/orchid/icons" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/orchid/platform" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

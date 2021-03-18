@@ -110,6 +110,13 @@
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/digitaldream/dbreader" />
       <path value="$PROJECT_DIR$/vendor/digitaldream/laracrud" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/laravel/scout" />
+      <path value="$PROJECT_DIR$/vendor/tabuna/breadcrumbs" />
+      <path value="$PROJECT_DIR$/vendor/watson/active" />
+      <path value="$PROJECT_DIR$/vendor/orchid/blade-icons" />
+      <path value="$PROJECT_DIR$/vendor/orchid/icons" />
+      <path value="$PROJECT_DIR$/vendor/orchid/platform" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
