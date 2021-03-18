@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2af38d90-d821-4939-accb-2b8d391d79d2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143606_create_pages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143606_create_pages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_144325_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_144325_create_settings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +126,8 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/digitaldream/dbreader" />
+      <path value="$PROJECT_DIR$/vendor/digitaldream/laracrud" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pt5X6Nfvs35R7JuEF3cn67m84y" />
@@ -135,6 +137,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -171,7 +174,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615989587021</updated>
       <workItem from="1615989589296" duration="3091000" />
-      <workItem from="1616036317740" duration="556000" />
+      <workItem from="1616036317740" duration="1032000" />
     </task>
     <servers />
   </component>
