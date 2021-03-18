@@ -63,7 +63,7 @@ class Post extends Model
      */
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'post_category');
+        return $this->belongsToMany(PostCategory::class, 'post_category');
     }
 
     /**
@@ -73,7 +73,7 @@ class Post extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'post_tag');
+        return $this->belongsToMany(PostTag::class, 'post_tag');
     }
 
 

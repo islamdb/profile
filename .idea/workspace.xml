@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2af38d90-d821-4939-accb-2b8d391d79d2" name="Default Changelist" comment="" />
+    <list default="true" id="2af38d90-d821-4939-accb-2b8d391d79d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Portofolio.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_141929_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_141929_create_post_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_142417_create_tags_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_142417_create_post_tags_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143200_create_post_category_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143200_create_post_category_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143313_create_post_tag_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143313_create_post_tag_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,6 +135,13 @@
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/digitaldream/dbreader" />
       <path value="$PROJECT_DIR$/vendor/digitaldream/laracrud" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/laravel/scout" />
+      <path value="$PROJECT_DIR$/vendor/tabuna/breadcrumbs" />
+      <path value="$PROJECT_DIR$/vendor/watson/active" />
+      <path value="$PROJECT_DIR$/vendor/orchid/blade-icons" />
+      <path value="$PROJECT_DIR$/vendor/orchid/icons" />
+      <path value="$PROJECT_DIR$/vendor/orchid/platform" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pt5X6Nfvs35R7JuEF3cn67m84y" />
@@ -170,7 +188,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615989587021</updated>
       <workItem from="1615989589296" duration="3091000" />
-      <workItem from="1616036317740" duration="1354000" />
+      <workItem from="1616036317740" duration="3870000" />
     </task>
     <servers />
   </component>

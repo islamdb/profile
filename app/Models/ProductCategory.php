@@ -5,34 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property text $images images
+ * @property text $image image
  * @property varchar $name name
  * @property varchar $slug slug
- * @property text $summary summary
- * @property longtext $body body
+ * @property text $description description
  * @property text $meta_title meta title
  * @property text $meta_keywords meta keywords
  * @property text $meta_description meta description
  * @property timestamp $created_at created at
  * @property timestamp $updated_at updated at
- * @property \Illuminate\Database\Eloquent\Collection $category belongsToMany
+ * @property \Illuminate\Database\Eloquent\Collection $ belongsToMany
  */
-class Portofolio extends Model
+class ProductCategory extends Model
 {
 
     /**
      * Database table name
      */
-    protected $table = 'portofolios';
+    protected $table = 'product_categories';
 
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['images',
+    protected $fillable = ['image',
         'name',
         'slug',
-        'summary',
-        'body',
+        'description',
         'meta_title',
         'meta_keywords',
         'meta_description'];
@@ -43,13 +41,13 @@ class Portofolio extends Model
     protected $dates = [];
 
     /**
-     * categories
+     * products
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function categories()
+    public function products()
     {
-        return $this->belongsToMany(PortofolioCategory::class, 'portofolio_category');
+        return $this->belongsToMany(Product::class,'product_category');
     }
 
 
