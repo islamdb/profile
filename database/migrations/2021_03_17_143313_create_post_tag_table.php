@@ -18,7 +18,7 @@ class CreatePostTagTable extends Migration
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('tag_id')
+            $table->foreignId('post_tag_id')
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostCategoryTable extends Migration
+class CreatePortofolioCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePostCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_category', function (Blueprint $table) {
-            $table->foreignId('post_id')
+        Schema::create('portofolio_category', function (Blueprint $table) {
+            $table->foreignId('portofolio_id')
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('post_category_id')
+            $table->foreignId('portofolio_category_id')
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
@@ -32,6 +32,6 @@ class CreatePostCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_category');
+        Schema::dropIfExists('portofolio_category');
     }
 }
