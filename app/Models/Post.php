@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use App\Support\Traits\ResourceAllowedSortsAndFilters;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property bigint unsigned $user_id user id
@@ -22,6 +26,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
+    use AsSource,
+        Filterable,
+        Attachable,
+        ResourceAllowedSortsAndFilters;
 
     /**
      * Database table name
@@ -31,15 +39,18 @@ class Post extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['user_id',
+    protected $fillable = [
+        'user_id',
         'image',
         'title',
         'slug',
         'summary',
         'body',
+        'published_at',
         'meta_title',
         'meta_keywords',
-        'meta_description'];
+        'meta_description'
+    ];
 
     /**
      * Date time columns.

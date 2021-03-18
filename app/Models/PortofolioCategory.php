@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use App\Support\Traits\ResourceAllowedSortsAndFilters;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property text $image image
@@ -18,6 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PortofolioCategory extends Model
 {
+    use AsSource,
+        Filterable,
+        Attachable,
+        ResourceAllowedSortsAndFilters;
 
     /**
      * Database table name
@@ -27,13 +35,14 @@ class PortofolioCategory extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['image',
+    protected $fillable = [
         'name',
         'slug',
         'description',
         'meta_title',
         'meta_keywords',
-        'meta_description'];
+        'meta_description'
+    ];
 
     /**
      * Date time columns.
@@ -41,7 +50,7 @@ class PortofolioCategory extends Model
     protected $dates = [];
 
     /**
-     *
+     * portofolios
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */

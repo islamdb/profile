@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use App\Support\Traits\ResourceAllowedSortsAndFilters;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property varchar $name name
@@ -13,6 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PostTag extends Model
 {
+    use AsSource,
+        Filterable,
+        Attachable,
+        ResourceAllowedSortsAndFilters;
 
     /**
      * Database table name
@@ -22,8 +30,10 @@ class PostTag extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['name',
-        'slug'];
+    protected $fillable = [
+        'name',
+        'slug'
+    ];
 
     /**
      * Date time columns.

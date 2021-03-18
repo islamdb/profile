@@ -16,7 +16,6 @@ class CreatePortofoliosTable extends Migration
     {
         Schema::create('portofolios', function (Blueprint $table) {
             $table->id();
-            $table->text('images');
             $table->string('name');
             $table->string('slug')
                 ->unique();

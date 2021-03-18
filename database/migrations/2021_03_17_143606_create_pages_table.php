@@ -21,8 +21,9 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->string('slug')
                 ->unique();
-            $table->boolean('main')
-                ->default(true);
+            $table->string('placement')
+                ->default('main navbar')
+                ->index();
             $table->longText('body');
             SEO::metaColumns($table);
             $table->timestamps();

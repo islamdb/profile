@@ -19,9 +19,12 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->string('slug')
                 ->unique();
-            $table->text('address');
-            $table->string('lat');
-            $table->string('lon');
+            $table->text('address')
+                ->nullable();
+            $table->string('lat')
+                ->nullable();
+            $table->string('lon')
+                ->nullable();
             $table->longText('body')
                 ->nullable();
             SEO::metaColumns($table);

@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use App\Support\Traits\ResourceAllowedSortsAndFilters;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property varchar $name name
@@ -12,6 +16,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Setting extends Model
 {
+    use AsSource,
+        Filterable,
+        Attachable,
+        ResourceAllowedSortsAndFilters;
 
     /**
      * Database table name
@@ -21,11 +29,12 @@ class Setting extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['value',
+    protected $fillable = [
         'name',
         'type',
         'editable',
-        'value'];
+        'value'
+    ];
 
     /**
      * Date time columns.

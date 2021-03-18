@@ -11,17 +11,17 @@ use Orchid\Screen\AsSource;
 /**
  * @property varchar $name name
  * @property varchar $slug slug
- * @property decimal $price price
- * @property decimal $discount discount
+ * @property text $address address
+ * @property varchar $lat lat
+ * @property varchar $lon lon
  * @property longtext $body body
  * @property text $meta_title meta title
  * @property text $meta_keywords meta keywords
  * @property text $meta_description meta description
  * @property timestamp $created_at created at
  * @property timestamp $updated_at updated at
- * @property \Illuminate\Database\Eloquent\Collection $category belongsToMany
  */
-class Product extends Model
+class Company extends Model
 {
     use AsSource,
         Filterable,
@@ -31,7 +31,7 @@ class Product extends Model
     /**
      * Database table name
      */
-    protected $table = 'products';
+    protected $table = 'companies';
 
     /**
      * Mass assignable columns
@@ -39,8 +39,9 @@ class Product extends Model
     protected $fillable = [
         'name',
         'slug',
-        'price',
-        'discount',
+        'address',
+        'lat',
+        'lon',
         'body',
         'meta_title',
         'meta_keywords',
@@ -51,16 +52,4 @@ class Product extends Model
      * Date time columns.
      */
     protected $dates = [];
-
-    /**
-     * categories
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function categories()
-    {
-        return $this->belongsToMany(ProductCategory::class, 'product_category');
-    }
-
-
 }

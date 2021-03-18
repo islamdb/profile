@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use App\Support\Traits\ResourceAllowedSortsAndFilters;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property varchar $email email
@@ -12,6 +16,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Message extends Model
 {
+    use AsSource,
+        Filterable,
+        Attachable,
+        ResourceAllowedSortsAndFilters;
 
     /**
      * Database table name
@@ -21,16 +29,16 @@ class Message extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['name',
+    protected $fillable = [
+        'name',
         'email',
-        'no',
+        'phone',
         'subject',
-        'body'];
+        'body'
+    ];
 
     /**
      * Date time columns.
      */
     protected $dates = [];
-
-
 }

@@ -25,6 +25,19 @@ class PlatformProvider extends OrchidServiceProvider
      */
     public function registerMainMenu(): array
     {
+        $exampleMenu = false;
+
+        $menu = [
+
+        ];
+
+        return $exampleMenu
+            ? array_merge($menu, $this->exampleMenu())
+            : $menu;
+    }
+
+    public function exampleMenu()
+    {
         return [
             ItemMenu::label('Example screen')
                 ->icon('monitor')
@@ -37,7 +50,7 @@ class PlatformProvider extends OrchidServiceProvider
             ItemMenu::label('Dropdown menu')
                 ->slug('example-menu')
                 ->icon('code')
-                ->withChildren(),
+                ->childs(),
 
             ItemMenu::label('Sub element item 1')
                 ->place('example-menu')
@@ -77,15 +90,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->title('Docs')
                 ->icon('docs')
                 ->url('https://orchid.software/en/docs'),
-
-            ItemMenu::label('Changelog')
-                ->icon('shuffle')
-                ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
-                ->badge(function () {
-                    return Dashboard::version();
-                }, Color::DARK()),
         ];
     }
+
 
     /**
      * @return ItemMenu[]

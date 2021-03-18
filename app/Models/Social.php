@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use App\Support\Traits\ResourceAllowedSortsAndFilters;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property text $image image
@@ -13,6 +17,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Social extends Model
 {
+    use AsSource,
+        Filterable,
+        Attachable,
+        ResourceAllowedSortsAndFilters;
 
     /**
      * Database table name
@@ -22,9 +30,11 @@ class Social extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['image',
+    protected $fillable = [
+        'image',
         'name',
-        'url'];
+        'url'
+    ];
 
     /**
      * Date time columns.

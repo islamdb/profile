@@ -18,10 +18,7 @@ class CreateGalleriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->longText('description');
-            $table->longText('images')
-                ->nullable();
-            $table->longText('videos')
+            $table->longText('body')
                 ->nullable();
             SEO::metaColumns($table);
             $table->timestamps();

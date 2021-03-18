@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2af38d90-d821-4939-accb-2b8d391d79d2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Support/OrchidField.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db8bf044-14d3-447c-914a-08939981a385.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db8bf044-14d3-447c-914a-08939981a385.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/profile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/profile.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Portofolio.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Tag.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_141929_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_141929_create_post_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_142417_create_tags_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_142417_create_post_tags_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143200_create_post_category_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143200_create_post_category_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143313_create_post_tag_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143313_create_post_tag_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Gallery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Gallery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Portofolio.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Portofolio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PortofolioCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PortofolioCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PostCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PostCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/PostTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/PostTag.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ProductCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ProductCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Slider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Slider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Social.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Social.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Orchid/PlatformProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Orchid/PlatformProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Support/SEO.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Support/SEO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_140527_create_services_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_140527_create_services_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_141929_create_post_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_141929_create_post_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143333_create_portofolio_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143333_create_portofolio_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143355_create_portofolios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143355_create_portofolios_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143606_create_pages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143606_create_pages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_143824_create_socials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_143824_create_socials_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_030139_create_galleries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_030139_create_galleries_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_030453_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_030453_create_messages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_031122_create_companies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_031122_create_companies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_18_034953_create_product_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_034953_create_product_categories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,6 +170,7 @@
       <path value="$PROJECT_DIR$/vendor/orchid/blade-icons" />
       <path value="$PROJECT_DIR$/vendor/orchid/icons" />
       <path value="$PROJECT_DIR$/vendor/orchid/platform" />
+      <path value="$PROJECT_DIR$/vendor/orchid/crud" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pt5X6Nfvs35R7JuEF3cn67m84y" />
@@ -155,7 +184,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Support" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Support/Traits" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -165,12 +194,17 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\profile\app\Support\Traits" />
       <recent name="C:\laragon\www\profile\app\Support" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\profile\app\Support\Traits" />
     </key>
   </component>
   <component name="RunManager">
@@ -188,7 +222,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615989587021</updated>
       <workItem from="1615989589296" duration="3091000" />
-      <workItem from="1616036317740" duration="3870000" />
+      <workItem from="1616036317740" duration="38337000" />
     </task>
     <servers />
   </component>

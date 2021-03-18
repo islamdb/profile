@@ -16,7 +16,6 @@ class CreatePortofolioCategoriesTable extends Migration
     {
         Schema::create('portofolio_categories', function (Blueprint $table) {
             $table->id();
-            $table->text('image');
             $table->string('name');
             $table->string('slug')
                 ->unique();

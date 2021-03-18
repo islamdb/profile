@@ -10,9 +10,35 @@ use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Str;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\TextArea;
 
 class SEO
 {
+    public static function titleField($name = 'meta_title', $title = 'Meta Title')
+    {
+        return Input::make($name)
+            ->title($title)
+            ->horizontal();
+    }
+
+    public static function keywordsField($name = 'meta_keywords', $title = 'Meta Keywords')
+    {
+        return TextArea::make($name)
+            ->title($title)
+            ->rows(3)
+            ->help('Pisahkan dengan tanda "," (koma)')
+            ->horizontal();
+    }
+
+    public static function descriptionField($name = 'meta_description', $title = 'Meta Keywords')
+    {
+        return TextArea::make($name)
+            ->title($title)
+            ->rows(4)
+            ->horizontal();
+    }
+
     public static function metaColumns(Blueprint $table)
     {
         $table->text('meta_title')

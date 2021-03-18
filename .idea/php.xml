@@ -117,6 +117,7 @@
       <path value="$PROJECT_DIR$/vendor/orchid/blade-icons" />
       <path value="$PROJECT_DIR$/vendor/orchid/icons" />
       <path value="$PROJECT_DIR$/vendor/orchid/platform" />
+      <path value="$PROJECT_DIR$/vendor/orchid/crud" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

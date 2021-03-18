@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "188c3e041f048d7b6f158deac4ca4af8",
+    "content-hash": "35f861387a578294b1552489beec419f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1876,6 +1876,70 @@
                 }
             ],
             "time": "2020-11-02T09:41:36+00:00"
+        },
+        {
+            "name": "orchid/crud",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orchidsoftware/crud.git",
+                "reference": "0ede5008e32f945f2f2bcc6310414f590742b0bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orchidsoftware/crud/zipball/0ede5008e32f945f2f2bcc6310414f590742b0bf",
+                "reference": "0ede5008e32f945f2f2bcc6310414f590742b0bf",
+                "shasum": ""
+            },
+            "require": {
+                "orchid/platform": "^9.14.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Orchid\\Crud\\CrudServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orchid\\Crud\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandr Chernyaev",
+                    "email": "bliz48rus@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Build CRUD apps in fewer lines of code for Laravel Orchid.",
+            "homepage": "https://github.com/orchid/crud",
+            "keywords": [
+                "crud",
+                "orchid"
+            ],
+            "support": {
+                "issues": "https://github.com/orchidsoftware/crud/issues",
+                "source": "https://github.com/orchidsoftware/crud/tree/2.7.1"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/orchid",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2021-01-26T17:52:49+00:00"
         },
         {
             "name": "orchid/icons",

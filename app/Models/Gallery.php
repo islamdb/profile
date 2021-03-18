@@ -2,7 +2,12 @@
 
 namespace App\Models;
 
+use App\Support\Traits\ResourceAllowedSortsAndFilters;
 use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
 /**
  * @property varchar $name name
@@ -18,6 +23,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Gallery extends Model
 {
+    use AsSource,
+        Filterable,
+        Attachable,
+        ResourceAllowedSortsAndFilters;
 
     /**
      * Database table name
@@ -27,19 +36,17 @@ class Gallery extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['name',
+    protected $fillable = [
+        'name',
         'slug',
-        'description',
-        'images',
-        'videos',
+        'body',
         'meta_title',
         'meta_keywords',
-        'meta_description'];
+        'meta_description'
+    ];
 
     /**
      * Date time columns.
      */
     protected $dates = [];
-
-
 }
