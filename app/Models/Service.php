@@ -36,7 +36,6 @@ class Service extends Model
      * Mass assignable columns
      */
     protected $fillable = [
-        'image',
         'name',
         'slug',
         'summary',

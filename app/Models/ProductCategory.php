@@ -35,13 +35,14 @@ class ProductCategory extends Model
     /**
      * Mass assignable columns
      */
-    protected $fillable = ['image',
+    protected $fillable = [
         'name',
         'slug',
         'description',
         'meta_title',
         'meta_keywords',
-        'meta_description'];
+        'meta_description'
+    ];
 
     /**
      * Date time columns.

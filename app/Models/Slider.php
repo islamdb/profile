@@ -33,7 +33,6 @@ class Slider extends Model
      * Mass assignable columns
      */
     protected $fillable = [
-        'image',
         'title',
         'description',
         'url',

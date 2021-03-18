@@ -31,7 +31,6 @@ class Social extends Model
      * Mass assignable columns
      */
     protected $fillable = [
-        'image',
         'name',
         'url'
     ];

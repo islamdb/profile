@@ -36,7 +36,6 @@ class Page extends Model
      * Mass assignable columns
      */
     protected $fillable = [
-        'image',
         'title',
         'slug',
         'placement',
