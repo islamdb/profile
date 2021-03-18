@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSettingsTable extends Migration
+class CreateMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('settings', function (Blueprint $table) {
-            $table->string('key')
-                ->primary();
+        Schema::create('messages', function (Blueprint $table) {
             $table->string('name');
-            $table->string('type');
-            $table->boolean('editable')
-                ->default(true);
-            $table->longText('value');
+            $table->string('email');
+            $table->string('no');
+            $table->string('subject');
+            $table->longText('body');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settings');
+        Schema::dropIfExists('messages');
     }
 }

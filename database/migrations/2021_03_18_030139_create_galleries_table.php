@@ -5,7 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePagesTable extends Migration
+class CreateGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,15 @@ class CreatePagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('pages', function (Blueprint $table) {
+        Schema::create('galleries', function (Blueprint $table) {
             $table->id();
-            $table->text('image')
+            $table->string('name');
+            $table->string('slug');
+            $table->longText('description');
+            $table->longText('images')
                 ->nullable();
-            $table->string('title');
-            $table->string('slug')
-                ->unique();
-            $table->boolean('main')
-                ->default(true);
-            $table->longText('body');
+            $table->longText('videos')
+                ->nullable();
             SEO::metaColumns($table);
             $table->timestamps();
         });
@@ -36,6 +35,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pages');
+        Schema::dropIfExists('galleries');
     }
 }
