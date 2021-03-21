@@ -9,6 +9,7 @@ use App\Orchid\Layouts\User\UserEditLayout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Orchid\Fortify\TwoFactorScreenAuthenticatable;
 use Orchid\Platform\Models\User;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
@@ -19,6 +20,8 @@ use Orchid\Support\Facades\Toast;
 
 class UserProfileScreen extends Screen
 {
+    use TwoFactorScreenAuthenticatable;
+
     /**
      * Display header name.
      *
@@ -54,7 +57,9 @@ class UserProfileScreen extends Screen
      */
     public function commandBar(): array
     {
-        return [];
+        return [
+            $this->twoFactorCommandBar()
+        ];
     }
 
     /**
@@ -82,6 +87,8 @@ class UserProfileScreen extends Screen
                         ->icon('check')
                         ->method('changePassword')
                 ),
+
+            $this->twoFactorLayout()
         ];
     }
 
