@@ -39,7 +39,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'slug',
-        'active',
+        'is_active',
         'price',
         'discount',
         'body',

@@ -32,36 +32,19 @@ class SettingResource extends Resource
      */
     public function fields(): array
     {
-        $types = (new \ReflectionClass(MyField::class))
-            ->getMethods();
-        $types = collect($types)
-            ->filter(function (\ReflectionMethod $method) {
-                $params = collect($method->getParameters())
-                    ->pluck('name')
-                    ->toArray();
-
-                return !Str::startsWith($method->getShortName(), ['with', 'default'])
-                    and in_array('name', $params)
-                    and in_array('title', $params);
-            })
-            ->pluck('name')
-            ->flip()
-            ->map(function ($val, $key) {
-                return $key;
-            })
-            ->toArray();
-
         return [
             MyField::input('key')
                 ->required(),
             MyField::input('name')
                 ->required(),
-            MyField::select('type', null, $types)
-                ->required(),
             MyField::switcher('editable')
+                ->value(true)
                 ->required(),
+            MyField::switcher('is_attachment')
+                ->required(),
+            MyField::upload(),
             MyField::textArea('value')
-                ->required()
+                ->rows(5),
         ];
     }
 
@@ -75,8 +58,8 @@ class SettingResource extends Resource
         return [
             MyTD::textWithShortcut('key'),
             MyTD::name(),
-            MyTD::text('type'),
-            MyTD::boolean('editable')
+            MyTD::boolean('editable'),
+            MyTD::boolean('is_attachment')
         ];
     }
 
@@ -97,6 +80,16 @@ class SettingResource extends Resource
         return [
             DeleteAction::class
         ];
+    }
+
+    public static function icon(): string
+    {
+        return 'settings';
+    }
+
+    public static function sort(): string
+    {
+        return 2001;
     }
 
     public function onSave(ResourceRequest $request, Model $model)

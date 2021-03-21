@@ -69,7 +69,7 @@ class MyField
     public static function defaultTitle($name, &$title)
     {
         $title = is_null($title)
-            ? Str::title($name)
+            ? Str::title(str_replace('_', ' ', $name))
             : $title;
     }
 

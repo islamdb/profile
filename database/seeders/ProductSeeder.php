@@ -43,7 +43,7 @@ class ProductSeeder extends Seeder
             $data[] = [
                 'name' => $name = Str::title($faker->unique()->word()),
                 'slug' => Str::slug($name),
-                'active' => rand(0, 1),
+                'is_active' => rand(0, 1),
                 'price' => $price = rand(5, 1000) * 1000,
                 'discount' => $price * rand(0, 25) / 100,
                 'body' => $faker->realText(),

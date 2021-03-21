@@ -35,8 +35,8 @@ class Setting extends Model
      */
     protected $fillable = [
         'name',
-        'type',
         'editable',
+        'is_attachment',
         'value'
     ];
 

@@ -44,7 +44,7 @@ class ProductResource extends Resource
                 ->step(0.001)
                 ->required(),
             MyField::quill('body'),
-            MyField::switcher('active')
+            MyField::switcher('is_active')
                 ->value(true)
         ]));
     }
@@ -58,7 +58,7 @@ class ProductResource extends Resource
     {
         return [
             MyTD::name(),
-            MyTD::boolean('active'),
+            MyTD::boolean('is_active'),
             TD::make('categories')
                 ->render(function ($model) {
                     return $model->categories
