@@ -21,13 +21,12 @@ class CreatePostsTable extends Migration
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->text('image')
-                ->nullable();
             $table->string('title');
             $table->string('slug')
                 ->unique();
             $table->text('summary');
             $table->longText('body');
+            $table->timestamp('published_at');
             SEO::metaColumns($table);
             $table->timestamps();
         });

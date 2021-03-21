@@ -4,8 +4,8 @@ namespace App\Orchid\Resources;
 
 use App\Models\Gallery;
 use App\Orchid\Actions\DeleteAction;
-use App\Support\OrchidField;
-use App\Support\OrchidTD;
+use App\Support\MyField;
+use App\Support\MyTD;
 use App\Support\Traits\ResourceOnSave;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Filters\DefaultSorted;
@@ -31,13 +31,10 @@ class GalleryResource extends Resource
      */
     public function fields(): array
     {
-        return OrchidField::withSlug(
-            'name',
-            OrchidField::withMeta([
-                OrchidField::attachmentImageAndVideo(),
-                OrchidField::body()
-            ])
-        );
+        return MyField::withSlug('name', MyField::withMeta([
+            MyField::uploadMedia(),
+            MyField::quill('body')
+        ]));
     }
 
     /**
@@ -48,12 +45,8 @@ class GalleryResource extends Resource
     public function columns(): array
     {
         return [
-            OrchidTD::name(),
-            TD::make('created_at', 'Date of creation')
-                ->render(function ($model) {
-                    return $model->created_at
-                        ->toDateTimeString();
-                }),
+            MyTD::name(),
+            MyTD::createdAt()
         ];
     }
 
@@ -74,6 +67,11 @@ class GalleryResource extends Resource
         return [
             DeleteAction::class
         ];
+    }
+
+    public static function icon(): string
+    {
+        return 'picture';
     }
 
     public function onSave(ResourceRequest $request, Model $model)

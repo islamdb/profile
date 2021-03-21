@@ -2,24 +2,27 @@
 
 namespace App\Orchid\Resources;
 
-use App\Models\Message;
+use App\Models\Slider;
 use App\Orchid\Actions\DeleteAction;
 use App\Support\MyField;
 use App\Support\MyTD;
+use App\Support\Traits\ResourceOnSave;
+use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\TextArea;
+use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\TD;
 
-class MessageResource extends Resource
+class SliderResource extends Resource
 {
+    use ResourceOnSave;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = Message::class;
+    public static $model = Slider::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -29,16 +32,13 @@ class MessageResource extends Resource
     public function fields(): array
     {
         return [
-            MyField::input('name')
-                ->disabled(),
-            MyField::input('subject')
-                ->disabled(),
-            MyField::input('email')
-                ->disabled(),
-            MyField::input('phone')
-                ->disabled(),
-            MyField::textArea('body', 'Message')
-            ->disabled()
+            MyField::input('title')
+                ->required(),
+            MyField::uploadPicture('attachment', 'Image')
+                ->maxFiles(1),
+            MyField::textArea('description'),
+            MyField::textArea('url'),
+            MyField::switcher('url_new_tab', 'Open URL In New Tab')
         ];
     }
 
@@ -50,9 +50,9 @@ class MessageResource extends Resource
     public function columns(): array
     {
         return [
-            MyTD::name(),
-            MyTD::text('subject'),
-            MyTD::createdAt(),
+            MyTD::title(),
+            MyTD::text('url'),
+            MyTD::createdAt()
         ];
     }
 
@@ -68,15 +68,20 @@ class MessageResource extends Resource
         ];
     }
 
-    public static function icon(): string
-    {
-        return 'envelope';
-    }
-
     public function actions(): array
     {
         return [
             DeleteAction::class
         ];
+    }
+
+    public static function icon(): string
+    {
+        return 'layers';
+    }
+
+    public function onSave(ResourceRequest $request, Model $model)
+    {
+        $this->saveWithAttachment($request, $model);
     }
 }

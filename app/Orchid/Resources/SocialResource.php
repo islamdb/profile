@@ -2,24 +2,27 @@
 
 namespace App\Orchid\Resources;
 
-use App\Models\Message;
+use App\Models\Social;
 use App\Orchid\Actions\DeleteAction;
 use App\Support\MyField;
 use App\Support\MyTD;
+use App\Support\Traits\ResourceOnSave;
+use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\TextArea;
+use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\TD;
 
-class MessageResource extends Resource
+class SocialResource extends Resource
 {
+    use ResourceOnSave;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = Message::class;
+    public static $model = Social::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -30,15 +33,10 @@ class MessageResource extends Resource
     {
         return [
             MyField::input('name')
-                ->disabled(),
-            MyField::input('subject')
-                ->disabled(),
-            MyField::input('email')
-                ->disabled(),
-            MyField::input('phone')
-                ->disabled(),
-            MyField::textArea('body', 'Message')
-            ->disabled()
+                ->required(),
+            MyField::uploadPicture('attachment', 'Logo/Icon'),
+            MyField::textArea('url')
+                ->required()
         ];
     }
 
@@ -51,8 +49,8 @@ class MessageResource extends Resource
     {
         return [
             MyTD::name(),
-            MyTD::text('subject'),
-            MyTD::createdAt(),
+            MyTD::text('url'),
+            MyTD::createdAt()
         ];
     }
 
@@ -68,15 +66,20 @@ class MessageResource extends Resource
         ];
     }
 
-    public static function icon(): string
-    {
-        return 'envelope';
-    }
-
     public function actions(): array
     {
         return [
             DeleteAction::class
         ];
+    }
+
+    public static function icon(): string
+    {
+        return 'social-instagram';
+    }
+
+    public function onSave(ResourceRequest $request, Model $model)
+    {
+        $this->saveWithAttachment($request, $model);
     }
 }

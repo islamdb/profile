@@ -2,8 +2,9 @@
 
 namespace App\Orchid\Resources;
 
-use App\Models\Portofolio;
-use App\Models\PortofolioCategory;
+use App\Models\Post;
+use App\Models\PostCategory;
+use App\Models\PostTag;
 use App\Orchid\Actions\DeleteAction;
 use App\Support\MyField;
 use App\Support\MyTD;
@@ -15,7 +16,7 @@ use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\TD;
 
-class PortofolioResource extends Resource
+class PostResource extends Resource
 {
     use ResourceOnSave;
 
@@ -24,22 +25,26 @@ class PortofolioResource extends Resource
      *
      * @var string
      */
-    public static $model = Portofolio::class;
+    public static $model = Post::class;
 
     /**
      * Get the fields displayed by the resource.
      *
      * @return array
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function fields(): array
     {
-        return MyField::withSlug('name', MyField::withMeta([
-            MyField::relation('categories')
-                ->fromModel(PortofolioCategory::class, 'name')
+        return MyField::withSlug('title', MyField::withMeta([
+            MyField::uploadPicture('attachment', 'Cover'),
+            MyField::select('categories.')
+                ->fromModel(PostCategory::class, 'name')
                 ->multiple(),
-            MyField::uploadMedia(),
-            MyField::quill('body')
+            MyField::textArea('summary'),
+            MyField::quill('body'),
+            MyField::select('tags.')
+                ->fromModel(PostTag::class, 'name')
+                ->multiple(),
+            MyField::dateTimer('published_at')
         ]));
     }
 
@@ -51,7 +56,7 @@ class PortofolioResource extends Resource
     public function columns(): array
     {
         return [
-            MyTD::name(),
+            MyTD::title(),
             TD::make('categories')
                 ->render(function ($model) {
                     return $model->categories
@@ -61,6 +66,16 @@ class PortofolioResource extends Resource
                         })
                         ->join('&nbsp;');
                 }),
+            TD::make('tags')
+                ->render(function ($model) {
+                    return $model->tags
+                        ->pluck('name')
+                        ->map(function ($name) {
+                            return badge($name);
+                        })
+                        ->join('&nbsp;');
+                }),
+            MyTD::dateTime('published_at'),
             MyTD::createdAt()
         ];
     }
@@ -87,6 +102,9 @@ class PortofolioResource extends Resource
     public function with(): array
     {
         return [
+            'tags' => function ($q) {
+                $q->select(['id', 'name']);
+            },
             'categories' => function ($q) {
                 $q->select(['id', 'name']);
             }
@@ -95,16 +113,20 @@ class PortofolioResource extends Resource
 
     public static function icon(): string
     {
-        return 'docs';
+        return 'screen-tablet';
     }
 
     public function onSave(ResourceRequest $request, Model $model)
     {
-        $this->sluggable($request, 'name');
+        $this->sluggable($request);
 
         $categories = $request->categories;
+        $tags = $request->tags;
+
         $request->request
             ->remove('categories');
+        $request->request
+            ->remove('tags');
 
         DB::beginTransaction();
 
@@ -114,6 +136,11 @@ class PortofolioResource extends Resource
             ->detach();
         $model->categories()
             ->attach($categories);
+
+        $model->tags()
+            ->detach();
+        $model->tags()
+            ->attach($tags);
 
         DB::commit();
     }

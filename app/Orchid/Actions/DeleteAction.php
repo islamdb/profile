@@ -18,7 +18,8 @@ class DeleteAction extends Action
     public function button(): Button
     {
         return Button::make('Delete Selected')
-            ->icon('trash');
+            ->icon('trash')
+            ->confirm(__('Are you sure you want to delete these resources?'));
     }
 
     /**

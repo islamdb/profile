@@ -4,15 +4,13 @@ namespace App\Orchid\Resources;
 
 use App\Models\Page;
 use App\Orchid\Actions\DeleteAction;
-use App\Support\OrchidField;
-use App\Support\OrchidTD;
+use App\Support\MyField;
+use App\Support\MyTD;
 use App\Support\Traits\ResourceOnSave;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
-use Orchid\Screen\Fields\Picture;
-use Orchid\Screen\Fields\Select;
 use Orchid\Screen\TD;
 
 class PageResource extends Resource
@@ -33,23 +31,14 @@ class PageResource extends Resource
      */
     public function fields(): array
     {
-        return OrchidField::withSlug(
-            'title',
-            OrchidField::withMeta([
-                Picture::make('image')
-                    ->title('Banner')
-                    ->horizontal(),
-                Select::make('placement')
-                    ->title('Navigation Placement')
-                    ->options([
-                        'main navbar' => 'Main Navbar',
-                        'navbar dropdown' => 'Navbar Dropdown',
-                    ])
-                    ->horizontal()
-                    ->required(),
-                OrchidField::body()
-            ])
-        );
+        return MyField::withSlug('title', MyField::withMeta([
+            MyField::uploadPicture('attachment', 'Banner'),
+            MyField::select('placement', 'Navigation Placement', [
+                'main navbar' => 'Main Navbar',
+                'navbar dropdown' => 'Navbar Dropdown'
+            ]),
+            MyField::quill('body')
+        ]));
     }
 
     /**
@@ -60,9 +49,9 @@ class PageResource extends Resource
     public function columns(): array
     {
         return [
-            OrchidTD::title(),
-            OrchidTD::text('placement'),
-            OrchidTD::createdAt()
+            MyTD::title(),
+            MyTD::text('placement'),
+            MyTD::createdAt()
         ];
     }
 
@@ -85,10 +74,15 @@ class PageResource extends Resource
         ];
     }
 
+    public static function icon(): string
+    {
+        return 'browser';
+    }
+
     public function onSave(ResourceRequest $request, Model $model)
     {
         $this->sluggable($request);
 
-        parent::onSave($request, $model);
+        $this->saveWithAttachment($request, $model);
     }
 }

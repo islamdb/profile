@@ -36,6 +36,9 @@ class PlatformProvider extends OrchidServiceProvider
             : $menu;
     }
 
+    /**
+     * @return array
+     */
     public function exampleMenu()
     {
         return [

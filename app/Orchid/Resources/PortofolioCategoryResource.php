@@ -4,17 +4,13 @@ namespace App\Orchid\Resources;
 
 use App\Models\PortofolioCategory;
 use App\Orchid\Actions\DeleteAction;
-use App\Support\OrchidField;
-use App\Support\OrchidTD;
+use App\Support\MyField;
+use App\Support\MyTD;
 use App\Support\Traits\ResourceOnSave;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
-use Orchid\Screen\Fields\Picture;
-use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\TD;
 
 class PortofolioCategoryResource extends Resource
@@ -35,20 +31,10 @@ class PortofolioCategoryResource extends Resource
      */
     public function fields(): array
     {
-        return OrchidField::withSlug(
-            'name',
-            OrchidField::withMeta([
-                Upload::make('attachment')
-                    ->title('Icon/Image')
-                    ->acceptedFiles('image/*')
-                    ->maxFiles(1)
-                    ->horizontal(),
-                TextArea::make('description')
-                    ->title('Description')
-                    ->rows(5)
-                    ->horizontal(),
-            ])
-        );
+        return MyField::withSlug('name', MyField::withMeta([
+            MyField::uploadPicture('attachment', 'Logo/Icon'),
+            MyField::textArea('description'),
+        ]));
     }
 
     /**
@@ -59,8 +45,8 @@ class PortofolioCategoryResource extends Resource
     public function columns(): array
     {
         return [
-            OrchidTD::name(),
-            OrchidTD::createdAt()
+            MyTD::name(),
+            MyTD::createdAt()
         ];
     }
 
@@ -83,11 +69,9 @@ class PortofolioCategoryResource extends Resource
         ];
     }
 
-    public function with(): array
+    public static function icon(): string
     {
-        return [
-            'portofolios'
-        ];
+        return 'table';
     }
 
     public function onSave(ResourceRequest $request, Model $model)

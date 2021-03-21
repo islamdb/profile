@@ -21,9 +21,7 @@ class CreateCompaniesTable extends Migration
                 ->unique();
             $table->text('address')
                 ->nullable();
-            $table->string('lat')
-                ->nullable();
-            $table->string('lon')
+            $table->string('map')
                 ->nullable();
             $table->longText('body')
                 ->nullable();

@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
+use Orchid\Attachment\Attachable;
+use Orchid\Filters\Filterable;
 use Orchid\Platform\Models\User as Authenticatable;
+use Orchid\Screen\AsSource;
 
 class User extends Authenticatable
 {
+    use AsSource,
+        Filterable,
+        Attachable;
+
     /**
      * The attributes that are mass assignable.
      *

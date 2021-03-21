@@ -2,9 +2,8 @@
 
 namespace App\Orchid\Resources;
 
-use App\Models\Portofolio;
-use App\Models\PortofolioCategory;
-use App\Orchid\Actions\DeleteAction;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Support\MyField;
 use App\Support\MyTD;
 use App\Support\Traits\ResourceOnSave;
@@ -15,7 +14,7 @@ use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\TD;
 
-class PortofolioResource extends Resource
+class ProductResource extends Resource
 {
     use ResourceOnSave;
 
@@ -24,22 +23,29 @@ class PortofolioResource extends Resource
      *
      * @var string
      */
-    public static $model = Portofolio::class;
+    public static $model = Product::class;
 
     /**
      * Get the fields displayed by the resource.
      *
      * @return array
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     public function fields(): array
     {
         return MyField::withSlug('name', MyField::withMeta([
             MyField::relation('categories')
-                ->fromModel(PortofolioCategory::class, 'name')
+                ->fromModel(ProductCategory::class, 'name')
                 ->multiple(),
             MyField::uploadMedia(),
-            MyField::quill('body')
+            MyField::input('price')
+                ->step(0.001)
+                ->required(),
+            MyField::input('discount')
+                ->step(0.001)
+                ->required(),
+            MyField::quill('body'),
+            MyField::switcher('active')
+                ->value(true)
         ]));
     }
 
@@ -52,6 +58,7 @@ class PortofolioResource extends Resource
     {
         return [
             MyTD::name(),
+            MyTD::boolean('active'),
             TD::make('categories')
                 ->render(function ($model) {
                     return $model->categories
@@ -61,6 +68,13 @@ class PortofolioResource extends Resource
                         })
                         ->join('&nbsp;');
                 }),
+            MyTD::money('price'),
+            MyTD::money('discount'),
+            MyTD::text('presentage')
+                ->render(function ($model) {
+                    return $model->discount_presentage.'%';
+                })
+                ->sort(false),
             MyTD::createdAt()
         ];
     }
@@ -77,25 +91,9 @@ class PortofolioResource extends Resource
         ];
     }
 
-    public function actions(): array
-    {
-        return [
-            DeleteAction::class
-        ];
-    }
-
-    public function with(): array
-    {
-        return [
-            'categories' => function ($q) {
-                $q->select(['id', 'name']);
-            }
-        ];
-    }
-
     public static function icon(): string
     {
-        return 'docs';
+        return 'bag';
     }
 
     public function onSave(ResourceRequest $request, Model $model)

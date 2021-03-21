@@ -4,15 +4,13 @@ namespace App\Orchid\Resources;
 
 use App\Models\Company;
 use App\Orchid\Actions\DeleteAction;
-use App\Support\OrchidField;
-use App\Support\OrchidTD;
+use App\Support\MyField;
+use App\Support\MyTD;
 use App\Support\Traits\ResourceOnSave;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\TD;
 
 class CompanyResource extends Resource
@@ -33,24 +31,12 @@ class CompanyResource extends Resource
      */
     public function fields(): array
     {
-        return OrchidField::withSlug(
-            'name',
-            OrchidField::withMeta([
-                TextArea::make('address')
-                    ->title('Address')
-                    ->horizontal(),
-                Input::make('lat')
-                    ->title('Latitude')
-                    ->type('text')
-                    ->horizontal(),
-                Input::make('lon')
-                    ->title('Longitude')
-                    ->type('text')
-                    ->horizontal(),
-                OrchidField::attachmentImageAndVideo(),
-                OrchidField::body()
-            ])
-        );
+        return MyField::withSlug('name', MyField::withMeta([
+            MyField::textArea('address'),
+            MyField::map(),
+            MyField::uploadMedia(),
+            MyField::quill('body')
+        ]));
     }
 
     /**
@@ -61,13 +47,9 @@ class CompanyResource extends Resource
     public function columns(): array
     {
         return [
-            OrchidTD::name(),
-            OrchidTD::text('address'),
-            TD::make('created_at', 'Date of creation')
-                ->render(function ($model) {
-                    return $model->created_at
-                        ->toDateTimeString();
-                })
+            MyTD::name(),
+            MyTD::text('address'),
+            MyTD::createdAt()
         ];
     }
 
@@ -88,6 +70,11 @@ class CompanyResource extends Resource
         return [
             DeleteAction::class
         ];
+    }
+
+    public static function icon(): string
+    {
+        return 'building';
     }
 
     public function onSave(ResourceRequest $request, Model $model)

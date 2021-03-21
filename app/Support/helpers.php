@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Dictionary;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,29 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 use Soundasleep\Html2Text;
 use Stichoza\GoogleTranslate\GoogleTranslate;
+
+if (!function_exists('readable_datetime')) {
+    /**
+     * Melakukan formatting tanggal
+     *
+     * @param Carbon $carbon
+     * @return string
+     */
+    function readable_datetime($datetime, $locale = 'id')
+    {
+        $format = 'dddd, MMMM Do YYYY, HH:mm:ss';
+        $localeFormats = [
+            'jv' => 'dddd, DD MMMM YYYY, HH:mm:ss',
+            'id' => 'dddd, DD MMMM YYYY, HH:mm:ss',
+            'en' => 'dddd, MMMM Do YYYY, HH:mm:ss'
+        ];
+        $format = $localeFormats[$locale] ?? $format;
+
+        return Carbon::parse($datetime)
+            ->locale($locale)
+            ->isoFormat($format);
+    }
+}
 
 if (!function_exists('route_name')) {
     /**

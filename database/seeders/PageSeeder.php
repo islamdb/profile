@@ -25,7 +25,6 @@ class PageSeeder extends Seeder
         for ($c = 0; $c < rand(2, 5); $c++){
             $data[] = [
                 'title' => $title = Str::title($faker->realText(rand(20, 40))),
-                'image' => $faker->imageUrl(640, 380, null, true, $title),
                 'slug' => Str::slug($title),
                 'placement' => ['main navbar', 'navbar dropdown'][rand(0, 1)],
                 'body' => $body = $faker->realText(500),

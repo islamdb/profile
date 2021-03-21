@@ -20,7 +20,9 @@ class CreateSettingsTable extends Migration
             $table->string('type');
             $table->boolean('editable')
                 ->default(true);
-            $table->longText('value');
+            $table->longText('value')
+                ->nullable();
+            $table->timestamps();
         });
     }
 

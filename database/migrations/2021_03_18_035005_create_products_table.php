@@ -25,6 +25,8 @@ class CreateProductsTable extends Migration
                 ->default(0);
             $table->longText('body')
                 ->nullable();
+            $table->boolean('active')
+                ->default(true);
             SEO::metaColumns($table);
             $table->timestamps();
         });

@@ -2,24 +2,26 @@
 
 namespace App\Orchid\Resources;
 
-use App\Models\Message;
-use App\Orchid\Actions\DeleteAction;
+use App\Models\PostTag;
 use App\Support\MyField;
 use App\Support\MyTD;
+use App\Support\Traits\ResourceOnSave;
+use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\TextArea;
+use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\TD;
 
-class MessageResource extends Resource
+class PostTagResource extends Resource
 {
+    use ResourceOnSave;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = Message::class;
+    public static $model = PostTag::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -28,18 +30,7 @@ class MessageResource extends Resource
      */
     public function fields(): array
     {
-        return [
-            MyField::input('name')
-                ->disabled(),
-            MyField::input('subject')
-                ->disabled(),
-            MyField::input('email')
-                ->disabled(),
-            MyField::input('phone')
-                ->disabled(),
-            MyField::textArea('body', 'Message')
-            ->disabled()
-        ];
+        return MyField::withSlug('name', MyField::withMeta());
     }
 
     /**
@@ -51,8 +42,7 @@ class MessageResource extends Resource
     {
         return [
             MyTD::name(),
-            MyTD::text('subject'),
-            MyTD::createdAt(),
+            MyTD::createdAt()
         ];
     }
 
@@ -70,13 +60,13 @@ class MessageResource extends Resource
 
     public static function icon(): string
     {
-        return 'envelope';
+        return 'grid';
     }
 
-    public function actions(): array
+    public function onSave(ResourceRequest $request, Model $model)
     {
-        return [
-            DeleteAction::class
-        ];
+        $this->sluggable($request, 'name');
+
+        parent::onSave($request, $model);
     }
 }

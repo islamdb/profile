@@ -39,6 +39,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'slug',
+        'active',
         'price',
         'discount',
         'body',
@@ -52,6 +53,11 @@ class Product extends Model
      */
     protected $dates = [];
 
+    protected $casts = [
+        'price' => 'float',
+        'discount' => 'float'
+    ];
+
     /**
      * categories
      *
@@ -62,5 +68,8 @@ class Product extends Model
         return $this->belongsToMany(ProductCategory::class, 'product_category');
     }
 
-
+    public function getDiscountPresentageAttribute()
+    {
+        return $this->discount / $this->price * 100;
+    }
 }

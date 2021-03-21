@@ -40,8 +40,7 @@ class Company extends Model
         'name',
         'slug',
         'address',
-        'lat',
-        'lon',
+        'map',
         'body',
         'meta_title',
         'meta_keywords',
@@ -52,4 +51,13 @@ class Company extends Model
      * Date time columns.
      */
     protected $dates = [];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'map' => 'array'
+    ];
 }

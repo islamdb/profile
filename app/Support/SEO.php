@@ -17,26 +17,19 @@ class SEO
 {
     public static function titleField($name = 'meta_title', $title = 'Meta Title')
     {
-        return Input::make($name)
-            ->title($title)
-            ->horizontal();
+        return MyField::input($name, $title);
     }
 
     public static function keywordsField($name = 'meta_keywords', $title = 'Meta Keywords')
     {
-        return TextArea::make($name)
-            ->title($title)
+        return MyField::textArea($name, $title)
             ->rows(3)
-            ->help('Pisahkan dengan tanda "," (koma)')
-            ->horizontal();
+            ->help('Pisahkan dengan tanda "," (koma)');
     }
 
     public static function descriptionField($name = 'meta_description', $title = 'Meta Keywords')
     {
-        return TextArea::make($name)
-            ->title($title)
-            ->rows(4)
-            ->horizontal();
+        return MyField::textArea($name, $title);
     }
 
     public static function metaColumns(Blueprint $table)

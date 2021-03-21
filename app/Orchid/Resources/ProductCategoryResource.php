@@ -2,24 +2,27 @@
 
 namespace App\Orchid\Resources;
 
-use App\Models\Message;
+use App\Models\Product;
 use App\Orchid\Actions\DeleteAction;
 use App\Support\MyField;
 use App\Support\MyTD;
+use App\Support\Traits\ResourceOnSave;
+use Illuminate\Database\Eloquent\Model;
 use Orchid\Crud\Filters\DefaultSorted;
 use Orchid\Crud\Resource;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\TextArea;
+use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\TD;
 
-class MessageResource extends Resource
+class ProductCategoryResource extends Resource
 {
+    use ResourceOnSave;
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = Message::class;
+    public static $model = Product::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -28,18 +31,10 @@ class MessageResource extends Resource
      */
     public function fields(): array
     {
-        return [
-            MyField::input('name')
-                ->disabled(),
-            MyField::input('subject')
-                ->disabled(),
-            MyField::input('email')
-                ->disabled(),
-            MyField::input('phone')
-                ->disabled(),
-            MyField::textArea('body', 'Message')
-            ->disabled()
-        ];
+        return MyField::withSlug('name', MyField::withMeta([
+            MyField::uploadPicture('attachment', 'Logo/Icon'),
+            MyField::textArea('description')
+        ]));
     }
 
     /**
@@ -51,8 +46,7 @@ class MessageResource extends Resource
     {
         return [
             MyTD::name(),
-            MyTD::text('subject'),
-            MyTD::createdAt(),
+            MyTD::createdAt()
         ];
     }
 
@@ -68,15 +62,22 @@ class MessageResource extends Resource
         ];
     }
 
-    public static function icon(): string
-    {
-        return 'envelope';
-    }
-
     public function actions(): array
     {
         return [
             DeleteAction::class
         ];
+    }
+
+    public static function icon(): string
+    {
+        return 'table';
+    }
+
+    public function onSave(ResourceRequest $request, Model $model)
+    {
+        $this->sluggable($request, 'name');
+
+        $this->saveWithAttachment($request, $model);
     }
 }

@@ -32,7 +32,10 @@ class PostTag extends Model
      */
     protected $fillable = [
         'name',
-        'slug'
+        'slug',
+        'meta_title',
+        'meta_keywords',
+        'meta_description'
     ];
 
     /**

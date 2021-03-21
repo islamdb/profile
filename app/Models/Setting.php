@@ -26,6 +26,10 @@ class Setting extends Model
      */
     protected $table = 'settings';
 
+    protected $primaryKey = 'key';
+
+    protected $keyType = 'string';
+
     /**
      * Mass assignable columns
      */

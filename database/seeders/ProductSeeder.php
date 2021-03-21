@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\Portofolio;
-use App\Models\PortofolioCategory;
+use App\Models\Product;
+use App\Models\ProductCategory;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class PortofolioSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -35,45 +35,48 @@ class PortofolioSeeder extends Seeder
                 'updated_at' => $createdAt
             ];
         }
-        PortofolioCategory::query()
+        ProductCategory::query()
             ->insert($data);
 
         $data = [];
-        for ($c = 0; $c < rand(20, 35); $c++){
+        for ($c = 0; $c < rand(25, 50); $c++){
             $data[] = [
-                'name' => $name = $faker->realText(rand(20, 40)),
+                'name' => $name = Str::title($faker->unique()->word()),
                 'slug' => Str::slug($name),
-                'body' => $body = $faker->realText(500),
-                'summary' => Str::limit($body),
+                'active' => rand(0, 1),
+                'price' => $price = rand(5, 1000) * 1000,
+                'discount' => $price * rand(0, 25) / 100,
+                'body' => $faker->realText(),
                 'meta_title' => Str::title(Str::slug($name, ' ')),
                 'meta_keywords' => collect($faker->words)->join(', '),
-                'meta_description' => Str::slug(Str::limit($body), ' '),
+                'meta_description' => Str::slug(Str::limit($desc), ' '),
                 'created_at' => $createdAt = $faker->dateTime,
                 'updated_at' => $createdAt
             ];
         }
-        Portofolio::query()
+        Product::query()
             ->insert($data);
 
-        $categories = PortofolioCategory::query()
-            ->select('id')
-            ->get()
-            ->pluck('id');
-        $portofolios = Portofolio::query()
-            ->select('id')
-            ->get()
-            ->pluck('id');
         $data = [];
-        foreach ($portofolios as $portofolio){
-            foreach ($categories->random(rand(2, 5)) as $category){
-                $data[] = [
-                    'portofolio_id' => $portofolio,
-                    'portofolio_category_id' => $category
-                ];
-            }
-        }
-        DB::table('portofolio_category')
-            ->insert($data);
+        $dataCategory = [];
+        $categories = ProductCategory::query()
+            ->select('id')
+            ->get()
+            ->pluck('id');
+        Product::query()
+            ->select('id')
+            ->get()
+            ->pluck('id')
+            ->each(function ($productId) use ($categories, &$dataCategory) {
+                foreach ($categories->random(rand(1, 4)) as $categoryId){
+                    $dataCategory[] = [
+                        'product_id' => $productId,
+                        'product_category_id' => $categoryId
+                    ];
+                }
+            });
+        DB::table('product_category')
+            ->insert($dataCategory);
 
         DB::commit();
     }
