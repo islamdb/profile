@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2af38d90-d821-4939-accb-2b8d391d79d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db8bf044-14d3-447c-914a-08939981a385.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db8bf044-14d3-447c-914a-08939981a385.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/profile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/profile.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Orchid/Screens/User/UserProfileScreen.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Orchid/Screens/User/UserProfileScreen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Orchid/Layouts/Role/RolePermissionLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Orchid/Layouts/Role/RolePermissionLayout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/PermissionProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/PermissionProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/platform.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/platform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +151,7 @@
       <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
       <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
       <path value="$PROJECT_DIR$/vendor/orchid/fortify" />
+      <path value="$PROJECT_DIR$/vendor/rennokki/laravel-eloquent-query-cache" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pt5X6Nfvs35R7JuEF3cn67m84y" />
@@ -205,6 +206,8 @@
       <workItem from="1616036317740" duration="38699000" />
       <workItem from="1616162203201" duration="28499000" />
       <workItem from="1616311266803" duration="12403000" />
+      <workItem from="1616333592868" duration="67000" />
+      <workItem from="1616393408756" duration="5346000" />
     </task>
     <servers />
   </component>

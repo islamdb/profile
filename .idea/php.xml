@@ -124,6 +124,7 @@
       <path value="$PROJECT_DIR$/vendor/pragmarx/google2fa" />
       <path value="$PROJECT_DIR$/vendor/laravel/fortify" />
       <path value="$PROJECT_DIR$/vendor/orchid/fortify" />
+      <path value="$PROJECT_DIR$/vendor/rennokki/laravel-eloquent-query-cache" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

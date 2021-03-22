@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Orchid\Layouts\Role;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Orchid\Platform\Models\User;
 use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Group;
@@ -82,9 +83,13 @@ class RolePermissionLayout extends Rows
      */
     private function makeCheckBox(Collection $chunks): CheckBox
     {
+        $value = Str::contains(request()->url(), 'roles/create')
+            ? true
+            : $chunks->get('active');
+
         return CheckBox::make('permissions.'.base64_encode($chunks->get('slug')))
             ->placeholder($chunks->get('description'))
-            ->value($chunks->get('active'))
+            ->value($value)
             ->sendTrueOrFalse()
             ->indeterminate($this->getIndeterminateStatus(
                 $chunks->get('slug'),

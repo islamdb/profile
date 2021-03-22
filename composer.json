@@ -18,7 +18,8 @@
         "laravel/tinker": "^2.5",
         "orchid/crud": "^2.7",
         "orchid/fortify": "^0.0.5",
-        "orchid/platform": "^9.19"
+        "orchid/platform": "^9.19",
+        "rennokki/laravel-eloquent-query-cache": "^2.6"
     },
     "require-dev": {
         "digitaldream/laracrud": "^4.0",

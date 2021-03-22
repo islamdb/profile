@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Permission;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
@@ -25,13 +27,17 @@ class PermissionProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-        $dashboard->registerPermissions(
-            ItemPermission::group('Slider')
-                ->addPermission('slider.browse', 'Browse Slider')
-                ->addPermission('slider.read', 'Read Slider')
-                ->addPermission('slider.edit', 'Edit Slider')
-                ->addPermission('slider.add', 'Add Slider')
-                ->addPermission('slider.delete', 'Delete Slider')
-        );
+        $permissionGroups = Permission::query()
+            ->select(['group', 'slug', 'name'])
+            ->get()
+            ->groupBy('group');
+
+        foreach ($permissionGroups as $group => $permissionGroup) {
+            $itemPermission = ItemPermission::group($group);
+            foreach ($permissionGroup as $permission) {
+                $itemPermission->addPermission($permission->slug, $permission->name);
+            }
+            $dashboard->registerPermissions($itemPermission);
+        }
     }
 }
