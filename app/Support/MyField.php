@@ -4,6 +4,7 @@
 namespace App\Support;
 
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Code;
@@ -44,6 +45,33 @@ class MyField
     public const INPUT_TIME = 'time';
     public const INPUT_URL = 'url';
     public const INPUT_WEEK = 'week';
+
+    public static function getList()
+    {
+        $methods = collect((new \ReflectionClass(static::class))->getMethods())
+            ->filter(function (\ReflectionMethod $method) {
+                if (!in_array($method->getName(), ['getList', 'withMeta', 'withSlug', 'defaultTitle'])){
+                    $parameters = collect($method->getParameters())
+                        ->map(function (\ReflectionParameter $parameter) {
+                            return $parameter->getName();
+                        })
+                        ->toArray();
+
+                    return in_array('name', $parameters)
+                        and in_array('title', $parameters);
+                }
+
+                return false;
+            })
+            ->map(function (\ReflectionMethod $method) {
+                return $method->getName();
+            })
+            ->sort()
+            ->flatten()
+            ->toArray();
+
+        return $methods;
+    }
 
     public static function withMeta(array $fields = [])
     {

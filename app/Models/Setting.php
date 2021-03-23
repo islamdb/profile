@@ -30,13 +30,16 @@ class Setting extends Model
 
     protected $keyType = 'string';
 
+    public $incrementing = false;
+
     /**
      * Mass assignable columns
      */
     protected $fillable = [
+        'key',
         'name',
         'editable',
-        'is_attachment',
+        'type',
         'value'
     ];
 

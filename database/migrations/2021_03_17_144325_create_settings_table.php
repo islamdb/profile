@@ -19,8 +19,7 @@ class CreateSettingsTable extends Migration
             $table->string('name');
             $table->boolean('editable')
                 ->default(true);
-            $table->boolean('is_attachment')
-                ->default(false);
+            $table->string('type');
             $table->longText('value')
                 ->nullable();
             $table->timestamps();
