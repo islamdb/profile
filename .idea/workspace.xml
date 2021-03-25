@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2af38d90-d821-4939-accb-2b8d391d79d2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db8bf044-14d3-447c-914a-08939981a385.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db8bf044-14d3-447c-914a-08939981a385.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Permission.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Social.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Social.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Orchid/Resources/PostResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Orchid/Resources/PostResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Orchid/Resources/SocialResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Orchid/Resources/SocialResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/PermissionProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/PermissionProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Support/MyField.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Support/MyField.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_17_144325_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_17_144325_create_settings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_22_134757_create_permissions_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +174,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Support/Traits" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/vendor/laracrud/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -186,10 +190,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\profile\resources\vendor\laracrud\templates" />
       <recent name="C:\laragon\www\profile\app\Support\Traits" />
       <recent name="C:\laragon\www\profile\app\Support" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\profile\resources\views" />
       <recent name="C:\laragon\www\profile\app\Support\Traits" />
     </key>
   </component>
@@ -214,11 +220,23 @@
       <workItem from="1616333592868" duration="67000" />
       <workItem from="1616393408756" duration="5346000" />
       <workItem from="1616484503711" duration="69000" />
-      <workItem from="1616484780188" duration="3456000" />
+      <workItem from="1616484780188" duration="4204000" />
+      <workItem from="1616570114833" duration="8643000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
