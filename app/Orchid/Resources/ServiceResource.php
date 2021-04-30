@@ -81,4 +81,9 @@ class ServiceResource extends Resource
 
         $this->saveWithAttachment($request, $model);
     }
+
+    public static function displayInNavigation(): bool
+    {
+        return false;
+    }
 }

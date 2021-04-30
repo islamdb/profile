@@ -2,7 +2,9 @@
 
 namespace App\Orchid\Resources;
 
-use App\Models\Product;
+use App\Models\Announcement;
+use App\Models\PostCategory;
+use App\Models\PostTag;
 use App\Orchid\Actions\DeleteAction;
 use App\Support\MyField;
 use App\Support\MyTD;
@@ -13,7 +15,7 @@ use Orchid\Crud\Resource;
 use Orchid\Crud\ResourceRequest;
 use Orchid\Screen\TD;
 
-class ProductCategoryResource extends Resource
+class AnnouncementResource extends Resource
 {
     use ResourceOnSave;
 
@@ -22,7 +24,7 @@ class ProductCategoryResource extends Resource
      *
      * @var string
      */
-    public static $model = Product::class;
+    public static $model = Announcement::class;
 
     /**
      * Get the fields displayed by the resource.
@@ -31,9 +33,9 @@ class ProductCategoryResource extends Resource
      */
     public function fields(): array
     {
-        return MyField::withSlug('name', MyField::withMeta([
-            MyField::uploadPicture('attachment', 'Logo/Icon'),
-            MyField::textArea('description')
+        return MyField::withSlug('title', MyField::withMeta([
+            MyField::input('group'),
+            MyField::quill('body')
         ]));
     }
 
@@ -45,7 +47,8 @@ class ProductCategoryResource extends Resource
     public function columns(): array
     {
         return [
-            MyTD::name(),
+            MyTD::title(),
+            MyTD::text('group'),
             MyTD::createdAt()
         ];
     }
@@ -71,18 +74,13 @@ class ProductCategoryResource extends Resource
 
     public static function icon(): string
     {
-        return 'table';
+        return 'browser';
     }
 
     public function onSave(ResourceRequest $request, Model $model)
     {
-        $this->sluggable($request, 'name');
+        $this->sluggable($request);
 
         $this->saveWithAttachment($request, $model);
-    }
-
-    public static function displayInNavigation(): bool
-    {
-        return false;
     }
 }

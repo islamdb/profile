@@ -117,4 +117,9 @@ class PortofolioResource extends Resource
 
         DB::commit();
     }
+
+    public static function displayInNavigation(): bool
+    {
+        return false;
+    }
 }
