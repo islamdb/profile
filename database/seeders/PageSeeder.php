@@ -26,7 +26,7 @@ class PageSeeder extends Seeder
             $data[] = [
                 'title' => $title = Str::title($faker->realText(rand(20, 40))),
                 'slug' => Str::slug($title),
-                'placement' => ['main navbar', 'navbar dropdown'][rand(0, 1)],
+                'group' => ['Profil', 'Lainnya'][rand(0, 1)],
                 'body' => $body = $faker->realText(500),
                 'meta_title' => Str::title(Str::slug($title, ' ')),
                 'meta_keywords' => collect($faker->words)->join(', '),

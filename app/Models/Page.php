@@ -38,7 +38,7 @@ class Page extends Model
     protected $fillable = [
         'title',
         'slug',
-        'placement',
+        'group',
         'body',
         'meta_title',
         'meta_keywords',

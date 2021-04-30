@@ -33,7 +33,7 @@ class PageResource extends Resource
     {
         return MyField::withSlug('title', MyField::withMeta([
             MyField::uploadPicture('attachment', 'Banner'),
-            MyField::select('placement', 'Navigation Placement', [
+            MyField::select('group', 'Navigation Placement', [
                 'main navbar' => 'Main Navbar',
                 'navbar dropdown' => 'Navbar Dropdown'
             ]),
@@ -50,7 +50,7 @@ class PageResource extends Resource
     {
         return [
             MyTD::title(),
-            MyTD::text('placement'),
+            MyTD::text('group'),
             MyTD::createdAt()
         ];
     }
